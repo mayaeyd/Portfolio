@@ -1,3 +1,4 @@
+//this is the root HTML and body tag that wraps the entire application or all the pages.
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -14,9 +15,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return ( //passing the nested pages and layouts here to the body
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}</body> 
     </html>
   );
 }
