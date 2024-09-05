@@ -29,8 +29,8 @@ export default function RootLayout({
       <body 
         className={cn(
           'flex min-h-screen flex-col font-sans antialiased',
-          inter.variable,
-          playfair.variable
+          inter.variable, //for sans serif fonts
+          playfair.variable  //for serif fonts
         )}
       >
         <Providers>

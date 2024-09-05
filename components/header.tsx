@@ -9,7 +9,7 @@ export default function Header(){
                 {/* div for the logo that goes to the homepage */}
                 <div> 
                     <Link href='/' className="font-serif text-2xl font-bold">
-                        HB
+                        ME
                     </Link>
                 </div>
                 <ul className="flex items-center gap-6 text-sm font-light text-muted-foreground">
