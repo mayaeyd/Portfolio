@@ -1,8 +1,11 @@
 //this is the root HTML and body tag that wraps the entire application or all the pages.
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+import {cn} from '@/lib/utils'
 import "./globals.css";
 import Providers from "@/components/providers";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +22,11 @@ export default function RootLayout({
   return ( //passing the nested pages and layouts here to the body
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </Providers>
         </body> 
     </html>
   );

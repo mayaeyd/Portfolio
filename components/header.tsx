@@ -4,7 +4,7 @@ import ThemeToggle from "@/components/theme-toggle";
 export default function Header(){
     return(
         <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
-            {/* contents of the container below are displayed as flex  */}
+            {/* contents of the container below are displayed as flex, also the container class is set by shadcn in tailwind config */}
             <nav className="container flex max-w-3xl items-center justify-between">
                 {/* div for the logo that goes to the homepage */}
                 <div> 

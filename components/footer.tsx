@@ -60,7 +60,7 @@ export default function Footer(){
                         <a
                             key={item.name}
                             href={item.href}
-                            target='_blank'
+                            target='_blank'  //Opens the linked document in a new window or tab
                             rel='noreferrer noopener'
                             className='text-muted-foreground hover:text-foreground'
                         >
