@@ -21,10 +21,10 @@ export default function ThemeToggle(){
     return null
   }
 
-  return ( //if it is mounted then we know we are on the client side and we will return this button 
+  return ( //if it is mounted then I know I are on the client side and I will return this button 
     <Button       // the shadcn button 
         size='sm'
-        variant='ghost'  // it doesn't have any background unless we hover over it
+        variant='ghost'  // it doesn't have any background unless I hover over it
         onClick={()=>{
             setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
         }}   
