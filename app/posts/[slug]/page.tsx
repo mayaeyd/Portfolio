@@ -1,6 +1,11 @@
 import { getPostBySlug } from '@/lib/posts'
 import { notFound } from 'next/navigation'
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { ArrowLeftIcon } from '@radix-ui/react-icons'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { formatDate } from '@/lib/utils'
 
 export default async function Post({params}: {params : {slug: string}}) {
 
@@ -15,30 +20,36 @@ export default async function Post({params}: {params : {slug: string}}) {
     const { title, image, author, publishedAt }= metadata
 
   return (
-      < section className=' pb-24 pt-32'>
-      <div className='container max-w-3x1'>
-      < Link
-      href='/posts'
-      className='mb-8 inline-flex items-center gap-2 text-sm font-light tex
-      <ArrowLeftIcon className='h-5 w-5' />
-      <span>Back to posts</span>
+      < section className='pb-24 pt-32'>
+      <div className='container max-w-3xl'>
+      <Link
+        href='/posts'
+        className='mb-8 inline-flex items-center gap-2 text-sm font-light'
+      >
+        <ArrowLeftIcon className='h-5 w-5' />
+        <span>Back to posts</span>
       </Link>
-      [image && K
-      <div className=' relative mb-6 h-96 w-full overflow-hidden rounded-1g"
-      Smage
-      I
-      SIC-Limagel
-      altafttle Jl
-      className='oblect-cover!
-      £1
+      {image && (
+      <div className='relative mb-6 h-96 w-full overflow-hidden rounded-lg'>
+        <Image
+          src={image}
+          alt={title || ''}
+          className='object-cover'
+          fill
+        />
       </div>
-      +7
-      48
+      )}
+  
       <header>
-      <h1 className='title' >[title}</h1>
-      <p ClassName='mt-3 text-xs text-muted-foreground'>
-      {author: / [formatDate(publishedAt ?? "')} </p>
+        <h1 className='title' >{title}</h1>
+        <p className='mt-3 text-xs text-muted-foreground'>
+          {author} / {formatDate(publishedAt ?? '')} 
+        </p>
       </header>
-      <main className=' prose mt-16 dark:prose-invert
+      <main className='prose mt-16 dark:prose-invert'> {/* tailwind typography package will style the markdown automatically */}
+        <MDXRemote source={content} />
+      </main>
+    </div>
+    </section>
   )
 }
