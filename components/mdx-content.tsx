@@ -4,7 +4,7 @@ import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import Counter from '@/components/counter'
     
 function Code({ children, ...props }: any) { 
-    let codeTML = highlight(children) 
+    let codeHTML = highlight(children) 
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} /> 
 } 
 
