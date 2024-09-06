@@ -9,7 +9,8 @@ function Code({ children, ...props }: any) {
 } 
 
 const components = { 
-    code: Code, Counter 
+    code: Code, 
+    Counter 
 }
 
 export default function MDXContent(
