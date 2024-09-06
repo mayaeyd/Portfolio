@@ -2,14 +2,14 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-const rootDirectory= path.join(process.cwd(), 'content','posts')  //posts folder inside content
+const rootDirectory= path.join(process.cwd(), 'content','projects')  //projects folder inside content
 
-export type Post = {
-    metadata: PostMetadata
+export type Project = {
+    metadata: ProjectMetadata
     content: string
 }
 
-export type PostMetadata = {
+export type ProjectMetadata = {
     title? :string
     summary?: string
     image? :string
@@ -18,7 +18,7 @@ export type PostMetadata = {
     slug: string
 }
 
-export async function getPostBySlug(slug:string): Promise<Post | null> {  //return post or null whether or not the slug exists
+export async function getProjectBySlug(slug:string): Promise<Project | null> {  //return project or null whether or not the slug exists
     try{
         const filePath= path.join(rootDirectory, `${slug}.mdx`) //get the file path
         const fileContents= fs.readFileSync(filePath, {encoding:'utf-8'})  //read the content of the file
@@ -31,25 +31,25 @@ export async function getPostBySlug(slug:string): Promise<Post | null> {  //retu
     }
 }
 
-export async function getPosts(limit?: number): Promise<PostMetadata[]> {
+export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
     const files = fs.readdirSync(rootDirectory)
-    const posts = files
-        .map(file => getPostMetadata(file))  //get the metadata of each file
-        .sort((a, b) => {  //sort the posts according to published date
+    const projects = files
+        .map(file => getProjectMetadata(file))  //get the metadata of each file
+        .sort((a, b) => {  //sort the projects according to published date
             if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? '')) {
                 return 1
             } else {
                 return -1
             }
         })
-    if (limit) {  //if a limit for num of posts was passed
-        return posts.slice(0, limit)
+    if (limit) {  //if a limit for num of projects was passed
+        return projects.slice(0, limit)
     }
     
-    return posts
+    return projects
 }
 
-export function getPostMetadata(filepath: string): PostMetadata {
+export function getProjectMetadata(filepath: string): ProjectMetadata {
     const slug = filepath.replace(/\.mdx$/, '')  //get the file
     const filePath= path.join(rootDirectory, filepath)  //create the slug
     const fileContent= fs.readFileSync(filePath, {encoding: 'utf8'}) //read the content of the file
