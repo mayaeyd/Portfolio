@@ -114,8 +114,7 @@
   }
 
   .prose pre code {
-    @apply p-0;
-    line-height: 1.75;
+    @apply p-0 leading-3;
   }
 
   .prose code span {
