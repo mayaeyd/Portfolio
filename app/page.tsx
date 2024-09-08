@@ -1,6 +1,7 @@
 //this is the homepage. Anytime I want to create a route index.js, I have to export a page.tsx or jsx from that directory 
 import Intro from "@/components/intro";
 import RecentPosts from "@/components/recent-posts";
+import RecentProjects from "@/components/recent-projects";
 
 export default function Home(){
   return(
@@ -8,6 +9,7 @@ export default function Home(){
       <div className="container max-w-3xl">
         <Intro />
         <RecentPosts />
+        <RecentProjects />
       </div>
     </section>
   )
