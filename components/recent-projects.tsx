@@ -13,7 +13,7 @@ export default async function RecentProjects() {
 
                 <Link
                     href='/projects'
-                    className="mt-8 inline-flex items-center gap-2 text-muted-foreground"
+                    className="mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
                 >
                     <span>All projects</span>
                 </Link>

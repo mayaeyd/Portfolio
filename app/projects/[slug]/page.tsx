@@ -30,7 +30,7 @@ export default async function Project({params}: {params : {slug: string}}) {
       <div className='container max-w-3xl'>
       <Link
         href='/projects'
-        className='mb-8 inline-flex items-center gap-2 text-sm font-light'
+        className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
       >
         <ArrowLeftIcon className='h-5 w-5' />
         <span>Back to projects</span>
